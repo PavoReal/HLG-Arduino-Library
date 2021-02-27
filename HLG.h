@@ -76,9 +76,10 @@ public:
     //
     // Colors
     //
-    HLG_DEF color_t COLOR_RED   = { 0xff, 0x00, 0x00 };
     HLG_DEF color_t COLOR_BLACK = { 0x00, 0x00, 0x00 };
     HLG_DEF color_t COLOR_WHITE = { 0xff, 0xff, 0xff };
+    HLG_DEF color_t COLOR_RED   = { 0xff, 0x00, 0x00 };
+    HLG_DEF color_t COLOR_BLUE  = { 0x00, 0x00, 0xff };
 
     //
     // Pins

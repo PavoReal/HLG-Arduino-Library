@@ -82,7 +82,7 @@ void
 HLG::clearScreen()
 {
 	// 8 bits opcode
-	uint16_t dataToSend[1];
+	uint32_t dataToSend[1];
 	dataToSend[0] = (HLG_OPCODE_CLEAR_SCREEN << 8);
 
 	WriteBufferToSPI(dataToSend, HLG_ARRAY_SIZE(dataToSend));
@@ -176,7 +176,7 @@ HLG::drawCircle(coord_t centerX, coord_t centerY, coord_t radius)
 	uint32_t dataToSend[2];
 	memset(dataToSend, 0, HLG_ARRAY_SIZE(dataToSend) * sizeof(uint32_t));
 
-	dataToSend[0] = ((opcode << 24) | (centerX << 13) | (centerY << 2));
+	dataToSend[0] = ((HLG_OPCODE_DRAW_CIRCLE << 24) | (centerX << 13) | (centerY << 2));
 	dataToSend[1] = (radius << 21);
 
 	WriteBufferToSPI(dataToSend, HLG_ARRAY_SIZE(dataToSend));
@@ -199,7 +199,7 @@ HLG::drawText(coord_t x, coord_t y, const char *text)
 	uint32_t dataToSend[1];
 	memset(dataToSend, 0, HLG_ARRAY_SIZE(dataToSend) * sizeof(uint32_t));
 
-	dataToSend[0] = ((opcode << 24) | (x << 13) | (y << 2));
+	dataToSend[0] = ((HLG_OPCODE_DRAW_TEXT << 24) | (x << 13) | (y << 2));
 
 	WriteBufferToSPI(dataToSend, HLG_ARRAY_SIZE(dataToSend));
 	WriteBufferToSPI((uint32_t*) text, strlen(text) / 4);

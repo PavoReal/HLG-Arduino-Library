@@ -6,8 +6,8 @@ HLG hlg;
 
 // Declare the (x, y) for the blue rect
 // in pixel space
-coord_t x;
-coord_t y;
+HLG::coord_t x;
+HLG::coord_t y;
 
 //
 // Runs once at startup
